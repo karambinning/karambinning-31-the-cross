@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>31 The Cross · Café & Kitchen · Worcester</title>
+<meta name="description" content="Independent café and kitchen at 31 The Cross, Worcester. Brooklyn brunches by day, speakeasy cocktails by night. Fine coffee, specialty teas, afternoon tea, sharing boards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2E9DC;
+    --paper-warm:#EADFCD;
+    --ink:#1B1410;
+    --tan:#A18167;
+    --brass:#C8A86B;
+    --brass-soft:#D8BC83;
+    --night:#241317;
+    --wine:#3A1B22;
+    --cream:#FBF6EC;
+    --rule:rgba(27,20,16,.18);
+    --font-deco:"Italiana","Didot",Georgia,serif;
+    --font-body:"EB Garamond",Georgia,"Times New Roman",serif;
+    --font-cap:"Tenor Sans","Optima",serif;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:clamp(1.025rem,.7rem + .55vw,1.15rem);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed;inset:0;pointer-events:none;z-index:1;
+    background:
+      radial-gradient(1200px 600px at 12% -10%, rgba(200,168,107,.10), transparent 60%),
+      radial-gradient(900px 500px at 95% 110%, rgba(161,129,103,.10), transparent 65%);
+    mix-blend-mode:multiply;
+  }
+  h1,h2,h3,h4{text-wrap:balance;font-weight:400}
+  p{text-wrap:pretty;hyphens:auto}
+  a{color:inherit;text-decoration:none}
+
+  /* ── Top utility strip ── */
+  .topstrip{
+    position:relative;z-index:5;
+    border-bottom:1px solid var(--rule);
+    background:var(--paper);
+    font-family:var(--font-cap);
+    font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+  }
+  .topstrip__inner{
+    max-width:1320px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:1rem;padding:.7rem clamp(1rem,3vw,2rem);
+  }
+  .topstrip .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--brass);margin:0 .65em;vertical-align:middle}
+  .topstrip a:hover{color:var(--tan)}
+
+  /* ── Nav ── */
+  .nav{
+    position:relative;z-index:5;
+    border-bottom:1px solid var(--rule);
+    background:var(--paper);
+  }
+  .nav__inner{
+    max-width:1320px;margin:0 auto;
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+    padding:1.1rem clamp(1rem,3vw,2rem);gap:1rem;
+  }
+  .brandmark{
+    font-family:var(--font-deco);
+    font-size:1.55rem;letter-spacing:.05em;
+    display:inline-flex;align-items:baseline;gap:.5rem;
+  }
+  .brandmark .num{color:var(--tan)}
+  .nav__links{
+    display:flex;gap:1.8rem;justify-content:center;
+    font-family:var(--font-cap);font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;
+  }
+  .nav__links a{position:relative;padding-bottom:2px}
+  .nav__links a::after{
+    content:"";position:absolute;left:0;right:100%;bottom:-2px;height:1px;background:var(--tan);
+    transition:right .35s ease;
+  }
+  .nav__links a:hover::after{right:0}
+  .nav__call{
+    justify-self:end;
+    font-family:var(--font-cap);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;
+    border:1px solid var(--ink);padding:.55rem .95rem;
+    transition:background .25s ease,color .25s ease;
+  }
+  .nav__call:hover{background:var(--ink);color:var(--paper)}
+  @media (max-width:760px){
+    .nav__inner{grid-template-columns:1fr auto}
+    .nav__links{display:none}
+  }
+
+  /* ── Hero ── */
+  .hero{
+    position:relative;z-index:2;
+    padding:clamp(2.5rem,6vw,5rem) clamp(1rem,3vw,2rem) clamp(3rem,7vw,6rem);
+    max-width:1320px;margin:0 auto;
+  }
+  .hero__grid{
+    display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+    gap:clamp(1.5rem,4vw,4rem);align-items:end;
+  }
+  @media (max-width:880px){.hero__grid{grid-template-columns:1fr}}
+  .numeral{
+    position:relative;
+    font-family:var(--font-deco);
+    font-size:clamp(11rem,30vw,26rem);
+    line-height:.78;letter-spacing:-.02em;
+    color:var(--ink);
+  }
+  .numeral .gilt{color:var(--tan)}
+  .numeral::before,.numeral::after{
+    content:"";position:absolute;left:0;right:0;height:1px;background:var(--ink);
+  }
+  .numeral::before{top:-.18em;transform:scaleY(2);transform-origin:top}
+  .numeral::after{bottom:-.1em;background:var(--brass);height:2px;width:38%}
+  .hero__title{
+    font-family:var(--font-deco);
+    font-size:clamp(2rem,4.4vw,3.6rem);
+    letter-spacing:.04em;line-height:1;
+    margin-top:.6rem;
+  }
+  .hero__title small{
+    display:block;
+    font-family:var(--font-cap);
+    font-size:.72rem;letter-spacing:.38em;text-transform:uppercase;
+    color:var(--tan);margin-bottom:.7rem;
+  }
+  .hero__right{padding-bottom:.5rem}
+  .hero__eyebrow{
+    font-family:var(--font-cap);font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--tan);
+    display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;
+  }
+  .hero__eyebrow::before{content:"";display:block;width:42px;height:1px;background:var(--tan)}
+  .hero__lede{
+    font-family:var(--font-body);
+    font-size:clamp(1.15rem,1.4vw,1.45rem);
+    line-height:1.5;max-width:34ch;
+  }
+  .hero__lede em{font-style:italic;color:var(--tan)}
+  .hero__meta{
+    margin-top:2rem;
+    display:flex;flex-wrap:wrap;gap:1.4rem 2.2rem;align-items:baseline;
+    font-family:var(--font-cap);font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+  }
+  .hero__meta a{border-bottom:1px solid var(--rule);padding-bottom:3px}
+  .hero__meta a:hover{border-bottom-color:var(--tan);color:var(--tan)}
+  .hero__phone{
+    font-family:var(--font-deco);
+    font-size:clamp(1.5rem,2.4vw,2rem);
+    letter-spacing:.04em;
+    border:none;color:var(--ink);
+  }
+
+  /* deco vertical rule between hero sides */
+  @media (min-width:881px){
+    .hero__grid{position:relative}
+    .hero__grid::after{
+      content:"";position:absolute;top:14%;bottom:6%;left:calc(58% + .2rem);
+      width:1px;background:linear-gradient(to bottom,transparent,var(--brass) 18%,var(--brass) 82%,transparent);
+      opacity:.6;
+    }
+  }
+
+  /* ── Marquee strip ── */
+  .marquee{
+    position:relative;z-index:3;
+    border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    background:var(--ink);color:var(--cream);
+    overflow:hidden;
+  }
+  .marquee__track{
+    display:inline-flex;gap:3.2rem;white-space:nowrap;padding:.95rem 0;
+    font-family:var(--font-deco);font-size:1.4rem;letter-spacing:.18em;text-transform:uppercase;
+    animation:scroll 38s linear infinite;
+    will-change:transform;
+  }
+  .marquee__track span:nth-child(odd){color:var(--brass)}
+  .marquee__track .pip{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:.6em;height:.6em;border-radius:50%;background:var(--tan);align-self:center;
+  }
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.marquee__track{animation:none}}
+
+  /* ── Intro signature block ── */
+  .signature{
+    position:relative;z-index:2;
+    padding:clamp(4rem,9vw,7rem) clamp(1rem,3vw,2rem);
+    max-width:920px;margin:0 auto;text-align:center;
+  }
+  .signature__label{
+    font-family:var(--font-cap);font-size:.72rem;letter-spacing:.38em;text-transform:uppercase;
+    color:var(--tan);margin-bottom:2rem;
+    display:inline-flex;align-items:center;gap:1rem;
+  }
+  .signature__label::before,.signature__label::after{
+    content:"";display:block;width:46px;height:1px;background:var(--tan);
+  }
+  .signature__quote{
+    font-family:var(--font-deco);
+    font-size:clamp(2rem,4vw,3.4rem);
+    line-height:1.15;letter-spacing:.01em;
+  }
+  .signature__quote em{font-style:italic;color:var(--tan)}
+  .signature__body{
+    margin-top:2rem;font-size:1.1rem;line-height:1.7;max-width:54ch;margin-inline:auto;
+    color:#3a2c23;
+  }
+
+  /* ── Day / Night split ── */
+  .split{
+    position:relative;z-index:2;
+    display:grid;grid-template-columns:1fr 1fr;
+    border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  }
+  @media (max-width:880px){.split{grid-template-columns:1fr}}
+  .panel{
+    position:relative;
+    padding:clamp(3rem,6vw,5.5rem) clamp(1.4rem,4vw,3.5rem);
+    min-height:clamp(28rem,55vw,40rem);
+    display:flex;flex-direction:column;justify-content:space-between;gap:2rem;
+  }
+  .panel--day{background:var(--cream);color:var(--ink)}
+  .panel--night{background:var(--night);color:var(--cream)}
+  @media (min-width:881px){
+    .panel--day{border-right:1px solid var(--ink)}
+  }
+  @media (max-width:880px){
+    .panel--day{border-bottom:1px solid var(--ink)}
+  }
+  .panel__kicker{
+    font-family:var(--font-cap);font-size:.74rem;letter-spacing:.38em;text-transform:uppercase;
+    display:flex;align-items:center;gap:.9rem;
+  }
+  .panel--day .panel__kicker{color:var(--tan)}
+  .panel--night .panel__kicker{color:var(--brass)}
+  .panel__kicker::before{content:"";display:block;width:36px;height:1px;background:currentColor}
+  .panel__h{
+    font-family:var(--font-deco);
+    font-size:clamp(3rem,5.5vw,5rem);
+    line-height:.96;letter-spacing:.01em;margin-top:.9rem;
+  }
+  .panel--day .panel__h em{font-style:italic;color:var(--tan)}
+  .panel--night .panel__h em{font-style:italic;color:var(--brass)}
+  .panel__list{
+    list-style:none;padding:0;margin-top:1.4rem;
+    border-top:1px solid currentColor;border-top-color:rgba(0,0,0,.15);
+  }
+  .panel--night .panel__list{border-top-color:rgba(200,168,107,.35)}
+  .panel__list li{
+    display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+    padding:.95rem 0;
+    border-bottom:1px solid rgba(0,0,0,.12);
+    font-size:1.08rem;
+  }
+  .panel--night .panel__list li{border-bottom-color:rgba(200,168,107,.18)}
+  .panel__list .item{font-family:var(--font-body);font-style:italic;letter-spacing:.01em;font-size:1.2rem}
+  .panel__list .note{
+    font-family:var(--font-cap);font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;
+    opacity:.7;
+  }
+  .panel__caption{
+    font-family:var(--font-body);font-style:italic;font-size:1.05rem;line-height:1.55;
+    max-width:38ch;opacity:.92;
+  }
+  /* tiny deco chevron stack in each panel corner */
+  .panel__deco{
+    position:absolute;top:1.4rem;right:1.4rem;
+    display:flex;flex-direction:column;gap:4px;align-items:flex-end;
+  }
+  .panel__deco span{display:block;height:1px;background:currentColor}
+  .panel__deco span:nth-child(1){width:36px;opacity:.9}
+  .panel__deco span:nth-child(2){width:24px;opacity:.6}
+  .panel__deco span:nth-child(3){width:12px;opacity:.4}
+
+  /* ── Services / what we do ── */
+  .services{
+    position:relative;z-index:2;
+    padding:clamp(4rem,8vw,7rem) clamp(1rem,3vw,2rem);
+    max-width:1180px;margin:0 auto;
+  }
+  .services__head{
+    display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:end;
+    margin-bottom:3rem;border-bottom:1px solid var(--rule);padding-bottom:1.5rem;
+  }
+  @media (max-width:720px){.services__head{grid-template-columns:1fr;gap:.6rem}}
+  .services__h{
+    font-family:var(--font-deco);
+    font-size:clamp(2.2rem,4vw,3.4rem);letter-spacing:.02em;line-height:1;
+  }
+  .services__h em{font-style:italic;color:var(--tan)}
+  .services__intro{
+    font-family:var(--font-body);font-style:italic;font-size:1.1rem;max-width:36ch;
+    justify-self:end;text-align:right;
+  }
+  @media (max-width:720px){.services__intro{justify-self:start;text-align:left}}
+  .grid3{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);
+  }
+  @media (max-width:880px){.grid3{grid-template-columns:1fr}}
+  .svc{
+    background:var(--paper);padding:2rem 1.6rem;
+    display:flex;flex-direction:column;gap:.8rem;
+    transition:background .35s ease;
+  }
+  .svc:hover{background:var(--paper-warm)}
+  .svc__num{
+    font-family:var(--font-deco);font-size:1.4rem;color:var(--tan);letter-spacing:.05em;
+  }
+  .svc__h{
+    font-family:var(--font-deco);font-size:1.7rem;letter-spacing:.02em;line-height:1.1;
+  }
+  .svc p{font-size:1rem;line-height:1.55;color:#3a2c23}
+
+  /* scroll reveal */
+  @supports (animation-timeline:view()){
+    .reveal{animation:rise both;animation-timeline:view();animation-range:entry 0% cover 28%}
+    @keyframes rise{from{opacity:0;transform:translateY(2rem)}to{opacity:1;transform:none}}
+  }
+
+  /* ── Find us ── */
+  .find{
+    position:relative;z-index:2;
+    background:var(--paper-warm);
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    padding:clamp(4rem,8vw,6rem) clamp(1rem,3vw,2rem);
+  }
+  .find__inner{
+    max-width:1180px;margin:0 auto;
+    display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,4vw,4rem);align-items:start;
+  }
+  @media (max-width:840px){.find__inner{grid-template-columns:1fr}}
+  .find__h{
+    font-family:var(--font-deco);font-size:clamp(2.5rem,5vw,4rem);line-height:1;letter-spacing:.02em;
+  }
+  .find__h em{font-style:italic;color:var(--tan)}
+  .find__sub{
+    font-family:var(--font-cap);font-size:.74rem;letter-spacing:.36em;text-transform:uppercase;
+    color:var(--tan);margin-bottom:1.2rem;
+    display:inline-flex;align-items:center;gap:.8rem;
+  }
+  .find__sub::before{content:"";display:block;width:40px;height:1px;background:var(--tan)}
+  .find__body{font-size:1.1rem;line-height:1.6;margin-top:1.4rem;max-width:48ch}
+  .letterhead{
+    font-family:var(--font-body);font-size:1.15rem;line-height:1.7;
+    padding:2rem;background:var(--cream);
+    border:1px solid var(--rule);
+    position:relative;
+  }
+  .letterhead::before,.letterhead::after{
+    content:"";position:absolute;left:1.4rem;right:1.4rem;height:1px;background:var(--brass);
+  }
+  .letterhead::before{top:.8rem}
+  .letterhead::after{bottom:.8rem}
+  .letterhead dt{
+    font-family:var(--font-cap);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--tan);margin-top:1rem;
+  }
+  .letterhead dt:first-child{margin-top:.4rem}
+  .letterhead dd{font-family:var(--font-body);margin:.2rem 0 0;font-size:1.1rem}
+  .letterhead a{border-bottom:1px solid var(--rule);padding-bottom:1px}
+  .letterhead a:hover{border-bottom-color:var(--tan);color:var(--tan)}
+
+  /* ── Footer ── */
+  .foot{
+    position:relative;z-index:2;
+    background:var(--ink);color:var(--cream);
+    padding:clamp(3rem,6vw,5rem) clamp(1rem,3vw,2rem) 2rem;
+  }
+  .foot__inner{
+    max-width:1180px;margin:0 auto;
+    display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2.4rem;
+  }
+  @media (max-width:780px){.foot__inner{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.foot__inner{grid-template-columns:1fr}}
+  .foot__brand{font-family:var(--font-deco);font-size:2.4rem;letter-spacing:.04em;line-height:1}
+  .foot__brand small{
+    display:block;font-family:var(--font-cap);font-size:.7rem;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--brass);margin-top:.6rem;
+  }
+  .foot h4{
+    font-family:var(--font-cap);font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--brass);margin-bottom:.9rem;
+  }
+  .foot p,.foot li{font-family:var(--font-body);font-size:1.02rem;line-height:1.7}
+  .foot ul{list-style:none;padding:0;margin:0}
+  .foot a{border-bottom:1px solid rgba(200,168,107,.25);padding-bottom:1px}
+  .foot a:hover{color:var(--brass);border-bottom-color:var(--brass)}
+  .foot__rule{
+    max-width:1180px;margin:3rem auto 1.4rem;height:1px;
+    background:linear-gradient(to right,transparent,var(--brass),transparent);
+  }
+  .foot__base{
+    max-width:1180px;margin:0 auto;
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;
+    font-family:var(--font-cap);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(251,246,236,.55);
+  }
+
+  /* tiny art-deco sunburst SVG box */
+  .deco-sun{display:block;width:42px;height:42px;color:var(--brass)}
+</style>
+</head>
+<body>
+
+  <div class="topstrip" role="note">
+    <div class="topstrip__inner">
+      <span>Independent · Worcester WR1 3PZ<span class="dot"></span>Open every day</span>
+      <span>Coffee · Brunch · Cocktails<span class="dot"></span><a href="tel:01905724242">01905 724242</a></span>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="brandmark" href="#"><span class="num">31</span><span>The Cross</span></a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#day-night">Day &amp; Night</a>
+        <a href="#what-we-do">What We Do</a>
+        <a href="#find">Find Us</a>
+      </nav>
+      <a class="nav__call" href="tel:01905724242">01905 724242</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__grid">
+      <div class="hero__left">
+        <h1 class="numeral" aria-label="31 The Cross">
+          <span class="gilt">3</span><span>1</span>
+        </h1>
+        <div class="hero__title">
+          <small>The Cross · Worcester</small>
+          Independent <em>Café</em> &amp; Kitchen
+        </div>
+      </div>
+      <aside class="hero__right">
+        <div class="hero__eyebrow">Est. on The Cross</div>
+        <p class="hero__lede">
+          Where the golden age of <em>Art Deco</em> meets the charm of a <em>Brooklyn</em> morning —
+          tucked into a Georgian building in the heart of historic Worcester. Brunch by day,
+          cocktails by night, fine coffee and tea throughout.
+        </p>
+        <div class="hero__meta">
+          <a class="hero__phone" href="tel:01905724242">01905 724242</a>
+        </div>
+        <div class="hero__meta">
+          <a href="https://www.instagram.com/31thecross/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/31thecross/" target="_blank" rel="noopener">Facebook</a>
+          <a href="#find">Find Us</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Brooklyn Brunches</span><span>·</span>
+      <span>Fine Coffee</span><span>·</span>
+      <span>Speciality Teas</span><span>·</span>
+      <span>Afternoon Tea Daily</span><span>·</span>
+      <span>Speakeasy Cocktails</span><span>·</span>
+      <span>Sharing Boards</span><span>·</span>
+      <span>Private Hire</span><span>·</span>
+      <span>Live Music</span><span>·</span>
+      <span>Everyone Welcome</span><span>·</span>
+      <!-- duplicate for seamless loop -->
+      <span>Brooklyn Brunches</span><span>·</span>
+      <span>Fine Coffee</span><span>·</span>
+      <span>Speciality Teas</span><span>·</span>
+      <span>Afternoon Tea Daily</span><span>·</span>
+      <span>Speakeasy Cocktails</span><span>·</span>
+      <span>Sharing Boards</span><span>·</span>
+      <span>Private Hire</span><span>·</span>
+      <span>Live Music</span><span>·</span>
+      <span>Everyone Welcome</span><span>·</span>
+    </div>
+  </div>
+
+  <section class="signature">
+    <div class="signature__label"><span>A Note From The Cross</span></div>
+    <p class="signature__quote">
+      Quirky, retro-brilliant, <em>art-deco-tastic</em> — and unmistakably Worcester.
+    </p>
+    <p class="signature__body">
+      Step inside and you'll find brass, deep wood and tiled floors lit like a slow weekend morning.
+      We pour for the cyclists in cycling kit, the laptop-and-flat-white crowd, the parents in for
+      pancakes, the early-evening cocktail set, and absolutely everyone in between. Everyone is welcome.
+    </p>
+  </section>
+
+  <section class="split" id="day-night">
+
+    <div class="panel panel--day reveal">
+      <div class="panel__deco" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div>
+        <div class="panel__kicker">By Day</div>
+        <h2 class="panel__h">A Brooklyn <em>brunch</em> on a Georgian street.</h2>
+      </div>
+      <ul class="panel__list">
+        <li><span class="item">Breakfast &amp; Brunch</span><span class="note">Until Late Morning</span></li>
+        <li><span class="item">Fine Coffee</span><span class="note">Specialty Roast</span></li>
+        <li><span class="item">Speciality Teas</span><span class="note">Loose Leaf</span></li>
+        <li><span class="item">Afternoon Tea</span><span class="note">Daily</span></li>
+        <li><span class="item">Sharing Boards</span><span class="note">All Day</span></li>
+      </ul>
+      <p class="panel__caption">
+        Slow mornings, proper coffee, and a kitchen that takes brunch seriously.
+        Gluten-free options across the menu.
+      </p>
+    </div>
+
+    <div class="panel panel--night reveal">
+      <div class="panel__deco" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div>
+        <div class="panel__kicker">By Night</div>
+        <h2 class="panel__h">A quiet <em>speakeasy</em> flair after sundown.</h2>
+      </div>
+      <ul class="panel__list">
+        <li><span class="item">Cocktails</span><span class="note">House &amp; Classics</span></li>
+        <li><span class="item">Wine &amp; Aperitif</span><span class="note">Considered List</span></li>
+        <li><span class="item">Sharing Plates</span><span class="note">For The Table</span></li>
+        <li><span class="item">Live Music</span><span class="note">Selected Evenings</span></li>
+        <li><span class="item">Private Hire</span><span class="note">Two Floors</span></li>
+      </ul>
+      <p class="panel__caption">
+        Brass, low light, and a list built for unhurried evenings. Book the upstairs floor
+        for a private gathering of any size.
+      </p>
+    </div>
+
+  </section>
+
+  <section class="services" id="what-we-do">
+    <div class="services__head">
+      <h2 class="services__h">What we <em>do</em></h2>
+      <p class="services__intro">
+        A café, a kitchen, an afternoon-tea room and a small evening venue — all under one roof on The Cross.
+      </p>
+    </div>
+
+    <div class="grid3">
+      <article class="svc reveal">
+        <div class="svc__num">№ 01</div>
+        <h3 class="svc__h">The Café</h3>
+        <p>Brooklyn-inspired brunches, sourdough toasts, eggs every way, and the kind of flat white you actually want to sit with. Counter service, table service, no fuss.</p>
+      </article>
+      <article class="svc reveal">
+        <div class="svc__num">№ 02</div>
+        <h3 class="svc__h">Afternoon Tea</h3>
+        <p>Served every day — loose-leaf tea, a tiered stand, and a quiet corner. Booking advised on weekends.</p>
+      </article>
+      <article class="svc reveal">
+        <div class="svc__num">№ 03</div>
+        <h3 class="svc__h">Cocktails &amp; Evenings</h3>
+        <p>House cocktails with a speakeasy flair, sharing plates, and a short, considered wine list. Live music on selected nights — follow on Instagram for what's on.</p>
+      </article>
+      <article class="svc reveal">
+        <div class="svc__num">№ 04</div>
+        <h3 class="svc__h">Private Hire</h3>
+        <p>Two floors available for private parties, work events, baby showers, birthdays. Drop us a line and we'll talk through the room.</p>
+      </article>
+      <article class="svc reveal">
+        <div class="svc__num">№ 05</div>
+        <h3 class="svc__h">Delivery &amp; Pickup</h3>
+        <p>Skip the queue at peak hours — order coffee, brunch and lunch for pickup, or get it delivered locally in Worcester.</p>
+      </article>
+      <article class="svc reveal">
+        <div class="svc__num">№ 06</div>
+        <h3 class="svc__h">The 31 Club</h3>
+        <p>A quiet newsletter — new menus, seasonal specials, live music announcements. No noise, just the worth-knowing.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="find" id="find">
+    <div class="find__inner">
+      <div>
+        <div class="find__sub"><span>Find Us</span></div>
+        <h2 class="find__h">On the corner, where it's <em>always</em> been.</h2>
+        <p class="find__body">
+          We're at 31 The Cross — the Georgian building on Worcester's pedestrianised high street, a
+          short walk from the Cathedral and the river. Walk-ins welcome; booking advised for weekend
+          brunch, afternoon tea and evening tables.
+        </p>
+        <p class="find__body">
+          For private hire, large groups or any event enquiry — call us, or message on Instagram.
+        </p>
+      </div>
+      <dl class="letterhead">
+        <dt>Address</dt>
+        <dd>31 The Cross<br>Worcester<br>WR1 3PZ</dd>
+        <dt>Telephone</dt>
+        <dd><a href="tel:01905724242">01905 724242</a></dd>
+        <dt>Online</dt>
+        <dd>
+          <a href="https://www.instagram.com/31thecross/" target="_blank" rel="noopener">@31thecross</a> &middot;
+          <a href="https://www.facebook.com/31thecross/" target="_blank" rel="noopener">Facebook</a>
+        </dd>
+        <dt>Opening</dt>
+        <dd>Open every day — see Instagram or call for today's hours.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot__inner">
+      <div>
+        <div class="foot__brand">31 The Cross<small>Independent Café &amp; Kitchen · Worcester</small></div>
+        <p style="margin-top:1.4rem;max-width:34ch;opacity:.85">
+          Art Deco meets a Brooklyn morning, on a Georgian corner of historic Worcester.
+        </p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>31 The Cross</li>
+          <li>Worcester</li>
+          <li>WR1 3PZ</li>
+          <li style="margin-top:.6rem"><a href="tel:01905724242">01905 724242</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/31thecross/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/31thecross/" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__rule"></div>
+    <div class="foot__base">
+      <span>© 31 The Cross · Worcester</span>
+      <span>Brunch · Coffee · Cocktails</span>
+    </div>
+  </footer>
+
+</body>
+</html>
